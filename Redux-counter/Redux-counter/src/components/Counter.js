@@ -1,6 +1,7 @@
 // For redux-toolkit usage must install "npm install @reduxjs/toolkit".
 
 // import { Component } from 'react';
+import { counterActions } from '../Store';
 import classes from './Counter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -10,17 +11,17 @@ const Counter = () => {
   const counter = useSelector(state => state.counter);
   const show = useSelector(state => state.showCounter);
   const toggleCounterHandler = () => {
-    dispatch({type: 'toggle'});
+    dispatch(counterActions.toggleCounter());
   };
   const incrementHandler = () => {
-    dispatch( {type: 'increment'});
+    dispatch(counterActions.increment());
   };
   const increaseHandler = () => {
     // We can always set the amount value from input.
-    dispatch({ type: 'increase', amount: 5 });
+    dispatch(counterActions.increase(10));
   }
   const decrementHandler = () => {
-    dispatch({type : 'decrement'});
+    dispatch(counterActions.decrement());
   };
  
   return (
@@ -29,7 +30,7 @@ const Counter = () => {
       {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={incrementHandler}>Increment</button>
-        <button onClick={increaseHandler}>Increment</button>
+        <button onClick={increaseHandler}>Increase</button>
         <button onClick={decrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
