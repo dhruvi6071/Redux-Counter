@@ -1,6 +1,8 @@
+// For redux-toolkit usage must install "npm install @reduxjs/toolkit".
+
 // import { Component } from 'react';
 import classes from './Counter.module.css';
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 const Counter = () => {
